@@ -649,7 +649,6 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -935,7 +934,6 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -1047,7 +1045,6 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -1326,7 +1323,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "select \r\nifnull(`n`.`name`, 'Main') AS `Node`,\r\nSUM(`a`.`used_traffic`) AS `Traffic`\r\nfrom ((`node_user_usages` `a` left join `users` `u` on( (`u`.`id` = `a`.`user_id`))) left join `nodes` `n` on( (`n`.`id` = `a`.`node_id`)))\r\nwhere (`a`.`created_at` >= concat( curdate(),' 00:00:00'))group by ifnull(`n`.`name`, 'Main')",
+          "rawSql": "SELECT \r\n    IFNULL(`n`.`name`, 'Main') AS `Node`,\r\n    SUM(`a`.`used_traffic`) AS `Traffic`\r\nFROM \r\n    (`node_user_usages` `a` \r\n    LEFT JOIN `users` `u` ON `u`.`id` = `a`.`user_id`) \r\n    LEFT JOIN `nodes` `n` ON `n`.`id` = `a`.`node_id`\r\nWHERE \r\n    CONVERT_TZ(`a`.`created_at`, '+00:00', '+03:30') >= CONCAT(DATE(CONVERT_TZ(NOW(), '+00:00', '+03:30')), ' 00:00:00')\r\nGROUP BY \r\n    IFNULL(`n`.`name`, 'Main');\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1602,8 +1599,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Marzban V1.1.1",
-  "uid": "c18818d3-4de9-4d42-9686-12493913v111",
-  "version": 3,
+  "title": "Marzban V1.1.2",
+  "uid": "c18818d3-4de9-4d42-9686-12493913v112",
+  "version": 2,
   "weekStart": ""
 }
