@@ -649,7 +649,7 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          "dataset": "alghaede",
+          
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -935,7 +935,7 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          "dataset": "alghaede",
+          
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -1047,7 +1047,11 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          "dataset": "alghaede",
+          
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
@@ -1069,10 +1073,6 @@
               }
             ],
             "limit": 50
-          },
-          "datasource": {
-            "type": "mysql",
-            "uid": "${DS_MYSQL-MARZBAN}"
           }
         }
       ],
@@ -1429,9 +1429,6 @@
           "placement": "right",
           "showLegend": false
         },
-        "timezone": [
-          "utc"
-        ],
         "tooltip": {
           "mode": "single",
           "sort": "none"
@@ -1552,9 +1549,6 @@
           "placement": "right",
           "showLegend": false
         },
-        "timezone": [
-          "utc"
-        ],
         "tooltip": {
           "mode": "single",
           "sort": "none"
@@ -1608,8 +1602,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Marzban V1.1.0",
-  "uid": "c18818d3-4de9-4d42-9686-12493913v110",
-  "version": 32,
+  "title": "Marzban V1.1.1",
+  "uid": "c18818d3-4de9-4d42-9686-12493913v111",
+  "version": 3,
   "weekStart": ""
 }
