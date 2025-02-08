@@ -1349,9 +1349,6 @@
             "placement": "right",
             "showLegend": false
           },
-          "timezone": [
-            "utc"
-          ],
           "tooltip": {
             "mode": "single",
             "sort": "none"
@@ -1368,7 +1365,7 @@
             "editorMode": "code",
             "format": "table",
             "rawQuery": true,
-            "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  SUM(a.used_traffic) AS 'Traffic'\r\nFROM node_user_usages a\r\nJOIN nodes n ON n.id = a.node_id\r\nJOIN users u ON u.id = a.user_id  -- اضافه کردن این JOIN برای فیلتر کردن کاربران بر اساس admin_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}  -- فیلتر کردن فقط برای یک ادمین خاص\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;\r\n",
+            "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  SUM(a.used_traffic) AS 'Traffic'\r\nFROM node_user_usages a\r\nJOIN nodes n ON n.id = a.node_id\r\nJOIN users u ON u.id = a.user_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;\r\n",
             "refId": "A",
             "sql": {
               "columns": [
@@ -1472,9 +1469,6 @@
             "placement": "right",
             "showLegend": false
           },
-          "timezone": [
-            "utc"
-          ],
           "tooltip": {
             "mode": "single",
             "sort": "none"
@@ -1491,7 +1485,7 @@
             "editorMode": "code",
             "format": "table",
             "rawQuery": true,
-            "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  COUNT(a.created_at) AS 'Count'\r\nFROM node_user_usages a\r\nJOIN users u ON u.id = a.user_id  -- اضافه کردن JOIN برای دسترسی به admin_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}  -- فیلتر کردن فقط برای یک ادمین خاص\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;\r\n",
+            "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  COUNT(a.created_at) AS 'Count'\r\nFROM node_user_usages a\r\nJOIN users u ON u.id = a.user_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;\r\n",
             "refId": "A",
             "sql": {
               "columns": [
@@ -1558,8 +1552,8 @@
       ]
     },
     "timezone": "",
-    "title": "Marzban-CS V1.1.0",
-    "uid": "c1234818d3-4de9-4d42-9686-124939CSv110",
-    "version": 50,
+    "title": "Marzban-CS V1.1.1",
+    "uid": "c1234818d3-4de9-4d42-9686-124939CSv111",
+    "version": 52,
     "weekStart": ""
   }
