@@ -570,6 +570,7 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
+          "dataset": "marzban",
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -749,6 +750,7 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
+          "dataset": "marzban",
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -965,6 +967,7 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
+          "dataset": "marzban",
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
