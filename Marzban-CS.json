@@ -570,7 +570,6 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          "dataset": "alghaede",
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -750,7 +749,6 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          "dataset": "alghaede",
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
@@ -967,7 +965,6 @@
       "pluginVersion": "11.4.0",
       "targets": [
         {
-          "dataset": "alghaede",
           "datasource": {
             "type": "mysql",
             "uid": "${DS_MYSQL-MARZBAN}"
