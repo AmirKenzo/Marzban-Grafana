@@ -1,1559 +1,1559 @@
 {
-    "__inputs": [
-      {
-        "name": "DS_MYSQL-MARZBAN",
-        "label": "mysql-marzban",
-        "description": "",
-        "type": "datasource",
-        "pluginId": "mysql",
-        "pluginName": "MySQL"
-      },
-      {
-        "name": "VAR_ADMINID",
-        "type": "constant",
-        "label": "adminID",
-        "value": "20",
-        "description": ""
-      }
-    ],
-    "__elements": {},
-    "__requires": [
-      {
-        "type": "panel",
-        "id": "bargauge",
-        "name": "Bar gauge",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "geomap",
-        "name": "Geomap",
-        "version": ""
-      },
-      {
-        "type": "grafana",
-        "id": "grafana",
-        "name": "Grafana",
-        "version": "11.4.0"
-      },
-      {
-        "type": "datasource",
-        "id": "mysql",
-        "name": "MySQL",
-        "version": "11.3.1"
-      },
-      {
-        "type": "panel",
-        "id": "piechart",
-        "name": "Pie chart",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "stat",
-        "name": "Stat",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "table",
-        "name": "Table",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "timeseries",
-        "name": "Time series",
-        "version": ""
-      }
-    ],
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": {
-            "type": "grafana",
-            "uid": "-- Grafana --"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
+  "__inputs": [
+    {
+      "name": "DS_MYSQL-MARZBAN",
+      "label": "mysql-marzban",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "mysql",
+      "pluginName": "MySQL"
     },
-    "description": "This is the dashboard for the panel representatives with MySQL.",
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": null,
-    "links": [],
-    "panels": [
+    {
+      "name": "VAR_ADMINID",
+      "type": "constant",
+      "label": "adminID",
+      "value": "1",
+      "description": ""
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "geomap",
+      "name": "Geomap",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.4.0"
+    },
+    {
+      "type": "datasource",
+      "id": "mysql",
+      "name": "MySQL",
+      "version": "11.3.1"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
       {
-        "collapsed": false,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 0
-        },
-        "id": 5,
-        "panels": [],
-        "title": "Status now",
-        "type": "row"
-      },
-      {
+        "builtIn": 1,
         "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
+          "type": "grafana",
+          "uid": "-- Grafana --"
         },
-        "description": "تعداد کاربرهای انلاین شما اینجا نمایش داده میشه",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "short"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 4,
-          "x": 0,
-          "y": 1
-        },
-        "hideTimeOverride": true,
-        "id": 1,
-        "interval": "1m",
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
-          "reduceOptions": {
-            "calcs": [
-              "sum"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  COUNT(id) AS 'Online Users', \r\n  online_at \r\nFROM users \r\nWHERE \r\n  online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\n  AND admin_id = ${adminID}\r\nGROUP BY online_at;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "timeFrom": "1m",
-        "title": "Online Users",
-        "type": "stat"
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "This is the dashboard for the panel representatives with MySQL.",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "description": "تعداد کاربرهای که به این لوکیشن ها وصل باشند نمایش داده میشه",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "continuous-GrYlRd"
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 7,
-          "w": 7,
-          "x": 4,
-          "y": 1
-        },
-        "hideTimeOverride": true,
-        "id": 3,
-        "interval": "1m",
-        "options": {
-          "displayMode": "lcd",
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "right",
-            "showLegend": false
-          },
-          "maxVizHeight": 20,
-          "minVizHeight": 0,
-          "minVizWidth": 8,
-          "namePlacement": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [],
-            "fields": "/^users$/",
-            "values": true
-          },
-          "showUnfilled": true,
-          "sizing": "auto",
-          "valueMode": "color"
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "WITH LatestConnection AS (\r\n    SELECT \r\n        user_id, \r\n        node_id,\r\n        ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) AS row_num\r\n    FROM node_user_usages \r\n    WHERE DATE(created_at) = CURDATE()\r\n)\r\n\r\nSELECT \r\n    IFNULL(n.name, 'Main') AS node,\r\n    COUNT(u.id) AS users\r\nFROM nodes n\r\nLEFT JOIN LatestConnection lc ON n.id = lc.node_id AND lc.row_num = 1\r\nLEFT JOIN users u ON u.id = lc.user_id AND u.online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE) AND u.admin_id = ${adminID}\r\nGROUP BY n.name\r\nORDER BY users DESC;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "timeFrom": "1m",
-        "title": "Connections by Node",
-        "type": "bargauge"
+      "id": 5,
+      "panels": [],
+      "title": "Status now",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "description": "اطلاعات شما در این بخش (مصرف حجم شما درصورت تمدید ریست خواهد شد)",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "align": "center",
-              "cellOptions": {
-                "type": "color-text"
-              },
-              "inspect": false
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
+      "description": "تعداد کاربرهای انلاین شما اینجا نمایش داده میشه",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
           },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 7,
-          "x": 11,
-          "y": 1
-        },
-        "id": 16,
-        "options": {
-          "cellHeight": "sm",
-          "footer": {
-            "countRows": false,
-            "enablePagination": true,
-            "fields": [],
-            "reducer": [
-              "sum"
-            ],
-            "show": true
-          },
-          "showHeader": true,
-          "sortBy": [
-            {
-              "desc": true,
-              "displayName": "users_usage"
-            }
-          ]
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  username as \"Name\",\r\n  CASE \r\n    WHEN users_usage >= 1099511627776 THEN CONCAT(ROUND(users_usage / 1099511627776, 2), ' TB')\r\n    WHEN users_usage >= 1073741824 THEN CONCAT(ROUND(users_usage / 1073741824, 2), ' GB')\r\n    WHEN users_usage >= 1048576 THEN CONCAT(ROUND(users_usage / 1048576, 2), ' MB')\r\n    ELSE CONCAT(users_usage, ' B')\r\n  END AS \"Usage\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = admins.id) AS \"Users\"\r\nFROM \r\n  admins\r\nWHERE \r\n  admins.id = $adminID;",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [
-                    {
-                      "name": "users_usage",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                },
-                {
-                  "parameters": [
-                    {
-                      "name": "username",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [],
-              "limit": 50
-            },
-            "table": "admins"
-          }
-        ],
-        "title": "Admin",
-        "type": "table"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "description": "وضعیت نودها (فعال غیرفعال نشان داده میشود)",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "align": "center",
-              "cellOptions": {
-                "type": "color-text",
-                "wrapText": false
-              },
-              "filterable": false,
-              "inspect": false
-            },
-            "fieldMinMax": false,
-            "mappings": [
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
-                "options": {
-                  "connected": {
-                    "color": "green",
-                    "index": 1,
-                    "text": "Connected"
-                  },
-                  "connecting": {
-                    "color": "yellow",
-                    "index": 0,
-                    "text": "Connecting"
-                  },
-                  "disabled": {
-                    "color": "text",
-                    "index": 3,
-                    "text": "Disabled"
-                  },
-                  "error": {
-                    "color": "dark-red",
-                    "index": 2,
-                    "text": "Error"
-                  }
-                },
-                "type": "value"
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 15,
-          "w": 6,
-          "x": 18,
-          "y": 1
-        },
-        "id": 18,
-        "options": {
-          "cellHeight": "sm",
-          "footer": {
-            "countRows": true,
-            "enablePagination": true,
-            "fields": "",
-            "reducer": [
-              "count"
-            ],
-            "show": true
-          },
-          "showHeader": true
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT name as 'Server Name', status as 'Status', xray_version as 'Xray Version'\r\nFROM nodes \r\nWHERE status IN ('error', 'connecting', 'disabled', 'connected') \r\nORDER BY status DESC;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [
-                    {
-                      "name": "users_usage",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                },
-                {
-                  "parameters": [
-                    {
-                      "name": "username",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [],
-              "limit": 50
-            },
-            "table": "admins"
-          }
-        ],
-        "title": "Nodes Status",
-        "type": "table"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "description": "این قسمت جمع کل حجم های ساخته شده شما هست",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 3,
-          "w": 4,
-          "x": 0,
-          "y": 6
-        },
-        "id": 19,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
-          "reduceOptions": {
-            "calcs": [],
-            "fields": "/^total_data_limit$/",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "alghaede",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(data_limit) >= 1099511627776 THEN CONCAT(ROUND(SUM(data_limit) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(data_limit) >= 1073741824 THEN CONCAT(ROUND(SUM(data_limit) / 1073741824, 2), ' GB')\r\n    WHEN SUM(data_limit) >= 1048576 THEN CONCAT(ROUND(SUM(data_limit) / 1048576, 2), ' MB')\r\n    WHEN SUM(data_limit) >= 1024 THEN CONCAT(ROUND(SUM(data_limit) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(data_limit), ' B')\r\n  END AS total_data_limit\r\nFROM users\r\nWHERE admin_id = ${adminID}\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "All Data Allocation Overview",
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "fixedColor": "blue",
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "unit": "none"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 7,
-          "x": 4,
-          "y": 8
-        },
-        "id": 4,
-        "options": {
-          "displayLabels": [
-            "percent"
-          ],
-          "legend": {
-            "calcs": [],
-            "displayMode": "table",
-            "placement": "right",
-            "showLegend": true,
-            "sortBy": "Value",
-            "sortDesc": true,
-            "values": [
-              "value",
-              "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": true
-          },
-          "tooltip": {
-            "mode": "multi",
-            "sort": "none"
-          }
+          "unit": "short"
         },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT b.type 'Client',\r\n       count(a.id) 'Users'\r\nFROM users AS a\r\nLEFT JOIN (\r\n    SELECT DISTINCT \r\n           sub_last_user_agent,\r\n           CASE \r\n               WHEN sub_last_user_agent IS NULL OR TRIM(sub_last_user_agent) = '' THEN 'Unknown'  \r\n               ELSE SUBSTR(sub_last_user_agent, 1, INSTR(sub_last_user_agent, '/')-1)\r\n           END AS type\r\n    FROM users\r\n) AS b ON b.sub_last_user_agent = a.sub_last_user_agent\r\nWHERE online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\n\tAND a.admin_id = ${adminID}\r\ngroup by b.type\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Connections by Client",
-        "type": "piechart"
+        "overrides": []
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "description": "حجم کل مصرفی یوزرهای شما (این بخش ریست نخواهد شد)",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 3,
-          "w": 4,
-          "x": 0,
-          "y": 9
-        },
-        "id": 20,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
-          "reduceOptions": {
-            "calcs": [],
-            "fields": "/.*/",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "alghaede",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(used_traffic) >= 1099511627776 THEN CONCAT(ROUND(SUM(used_traffic) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(used_traffic) >= 1073741824 THEN CONCAT(ROUND(SUM(used_traffic) / 1073741824, 2), ' GB')\r\n    WHEN SUM(used_traffic) >= 1048576 THEN CONCAT(ROUND(SUM(used_traffic) / 1048576, 2), ' MB')\r\n    WHEN SUM(used_traffic) >= 1024 THEN CONCAT(ROUND(SUM(used_traffic) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(used_traffic), ' B')\r\n  END AS total_used_traffic\r\nFROM users\r\nWHERE admin_id = ${adminID}\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "All Used Traffic Overview",
-        "type": "stat"
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 1
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
+      "hideTimeOverride": true,
+      "id": 1,
+      "interval": "1m",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
         },
-        "description": "اطلاعات شما در این بخش (مصرف حجم شما درصورت تمدید ریست خواهد شد)",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "align": "center",
-              "cellOptions": {
-                "type": "color-text",
-                "wrapText": false
-              },
-              "filterable": true,
-              "inspect": false
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 7,
-          "w": 7,
-          "x": 11,
-          "y": 9
-        },
-        "id": 22,
-        "options": {
-          "cellHeight": "sm",
-          "footer": {
-            "countRows": false,
-            "enablePagination": true,
-            "fields": [],
-            "reducer": [],
-            "show": false
-          },
-          "showHeader": true,
-          "sortBy": [
-            {
-              "desc": true,
-              "displayName": "users_usage"
-            }
-          ]
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n    ad.username AS 'Admin Name',\r\n    a.reset_at,\r\n    -- تبدیل حجم به واحد مناسب با استفاده از CASE\r\n    CASE \r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 4) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 4), 2), ' TB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 3) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 3), 2), ' GB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 2) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 2), 2), ' MB')\r\n        ELSE CONCAT(ROUND(a.used_traffic_at_reset / 1024, 2), ' KB')\r\n    END AS 'Used Traffic'\r\nFROM \r\n    admin_usage_logs a\r\nJOIN \r\n    admins ad ON a.admin_id = ad.id\r\nWHERE \r\n    a.admin_id = ${adminID}\r\nORDER BY \r\n    a.reset_at DESC;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [
-                    {
-                      "name": "users_usage",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                },
-                {
-                  "parameters": [
-                    {
-                      "name": "username",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [],
-              "limit": 50
-            },
-            "table": "admins"
-          }
-        ],
-        "title": "Reseted Traffic",
-        "type": "table"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "description": "وضعیت یوزرهای شما",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
           },
-          "overrides": [
-            {
-              "__systemRef": "hideSeriesFrom",
-              "matcher": {
-                "id": "byNames",
-                "options": {
-                  "mode": "exclude",
-                  "names": [
-                    "Count",
-                    "on_hold",
-                    "disabled"
-                  ],
-                  "prefix": "All except:",
-                  "readOnly": true
-                }
-              },
-              "properties": []
-            }
-          ]
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 4,
-          "x": 0,
-          "y": 12
-        },
-        "id": 21,
-        "options": {
-          "displayMode": "gradient",
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": false
-          },
-          "maxVizHeight": 24,
-          "minVizHeight": 57,
-          "minVizWidth": 8,
-          "namePlacement": "left",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "/^User Count$/",
-            "values": true
-          },
-          "showUnfilled": true,
-          "sizing": "manual",
-          "valueMode": "color"
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "alghaede",
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n    u.status AS \"User Status\", \r\n    COUNT(u.id) AS \"User Count\"\r\nFROM \r\n    users u\r\nWHERE u.admin_id = ${adminID}\r\nGROUP BY \r\n    u.status;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            },
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            }
-          }
-        ],
-        "title": "All Users Status",
-        "type": "bargauge"
-      },
-      {
-        "collapsed": false,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 16
-        },
-        "id": 6,
-        "panels": [],
-        "title": "Daily Reset",
-        "type": "row"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  COUNT(id) AS 'Online Users', \r\n  online_at \r\nFROM users \r\nWHERE \r\n  online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\n  AND admin_id = ${adminID}\r\nGROUP BY online_at;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
               }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
                 },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "timeFrom": "1m",
+      "title": "Online Users",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "description": "تعداد کاربرهای که به این لوکیشن ها وصل باشند نمایش داده میشه",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
           },
-          "overrides": []
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
-        "gridPos": {
-          "h": 10,
-          "w": 6,
-          "x": 0,
-          "y": 17
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 4,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 3,
+      "interval": "1m",
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
         },
-        "id": 8,
-        "options": {
-          "basemap": {
-            "config": {},
-            "name": "Layer 0",
-            "type": "default"
+        "maxVizHeight": 20,
+        "minVizHeight": 0,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^users$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
           },
-          "controls": {
-            "mouseWheelZoom": true,
-            "showAttribution": true,
-            "showDebug": false,
-            "showMeasure": false,
-            "showScale": false,
-            "showZoom": true
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH LatestConnection AS (\r\n    SELECT \r\n        user_id, \r\n        node_id,\r\n        ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) AS row_num\r\n    FROM node_user_usages \r\n    WHERE DATE(created_at) = CURDATE()\r\n)\r\n\r\nSELECT \r\n    IFNULL(n.name, 'Main') AS node,\r\n    COUNT(u.id) AS users\r\nFROM nodes n\r\nLEFT JOIN LatestConnection lc ON n.id = lc.node_id AND lc.row_num = 1\r\nLEFT JOIN users u ON u.id = lc.user_id AND u.online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE) AND u.admin_id = ${adminID}\r\nGROUP BY n.name\r\nORDER BY users DESC;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "timeFrom": "1m",
+      "title": "Connections by Node",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "description": "اطلاعات شما در این بخش (مصرف حجم شما درصورت تمدید ریست خواهد شد)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
           },
-          "layers": [
-            {
-              "config": {
-                "showLegend": true,
-                "style": {
-                  "color": {
-                    "fixed": "dark-green"
-                  },
-                  "opacity": 0.4,
-                  "rotation": {
-                    "fixed": 0,
-                    "max": 360,
-                    "min": -360,
-                    "mode": "mod"
-                  },
-                  "size": {
-                    "field": "used_traffic",
-                    "fixed": 5,
-                    "max": 15,
-                    "min": 1
-                  },
-                  "symbol": {
-                    "fixed": "img/icons/marker/circle.svg",
-                    "mode": "fixed"
-                  },
-                  "symbolAlign": {
-                    "horizontal": "center",
-                    "vertical": "center"
-                  },
-                  "text": {
-                    "field": "node",
-                    "fixed": "",
-                    "mode": "field"
-                  },
-                  "textConfig": {
-                    "fontSize": 12,
-                    "offsetX": 0,
-                    "offsetY": 0,
-                    "textAlign": "center",
-                    "textBaseline": "middle"
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 11,
+        "y": 1
+      },
+      "id": 16,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": [],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "users_usage"
+          }
+        ]
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  username as \"Name\",\r\n  CASE \r\n    WHEN users_usage >= 1099511627776 THEN CONCAT(ROUND(users_usage / 1099511627776, 2), ' TB')\r\n    WHEN users_usage >= 1073741824 THEN CONCAT(ROUND(users_usage / 1073741824, 2), ' GB')\r\n    WHEN users_usage >= 1048576 THEN CONCAT(ROUND(users_usage / 1048576, 2), ' MB')\r\n    ELSE CONCAT(users_usage, ' B')\r\n  END AS \"Usage\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = admins.id) AS \"Users\"\r\nFROM \r\n  admins\r\nWHERE \r\n  admins.id = $adminID;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "users_usage",
+                    "type": "functionParameter"
                   }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "username",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [],
+            "limit": 50
+          },
+          "table": "admins"
+        }
+      ],
+      "title": "Admin",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "description": "وضعیت نودها (فعال غیرفعال نشان داده میشود)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "color-text",
+              "wrapText": false
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "connected": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "Connected"
+                },
+                "connecting": {
+                  "color": "yellow",
+                  "index": 0,
+                  "text": "Connecting"
+                },
+                "disabled": {
+                  "color": "text",
+                  "index": 3,
+                  "text": "Disabled"
+                },
+                "error": {
+                  "color": "dark-red",
+                  "index": 2,
+                  "text": "Error"
                 }
               },
-              "filterData": {
-                "id": "byRefId",
-                "options": "A"
-              },
-              "location": {
-                "gazetteer": "public/gazetteer/countries.json",
-                "lookup": "node",
-                "mode": "lookup"
-              },
-              "name": "Traffic usage",
-              "tooltip": true,
-              "type": "markers"
+              "type": "value"
             }
           ],
-          "tooltip": {
-            "mode": "details"
-          },
-          "view": {
-            "allLayers": true,
-            "id": "zero",
-            "lat": 0,
-            "lon": 0,
-            "shared": false,
-            "zoom": 1
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
           }
         },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  SUM(a.used_traffic) AS `used_traffic`,\r\n  IFNULL(n.name, 'Main') AS `node`\r\nFROM node_user_usages a\r\nLEFT JOIN users u ON u.id = a.user_id  -- اضافه کردن JOIN برای دسترسی به admin_id\r\nLEFT JOIN nodes n ON n.id = a.node_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}  -- فیلتر کردن فقط برای یک ادمین خاص\r\nGROUP BY IFNULL(n.name, 'Main');\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Today users",
-        "type": "geomap"
+        "overrides": []
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
+      "gridPos": {
+        "h": 15,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 18,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": true,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "count"
+          ],
+          "show": true
         },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "fixed"
-            },
-            "custom": {
-              "align": "center",
-              "cellOptions": {
-                "type": "auto",
-                "wrapText": false
+        "showHeader": true
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT name as 'Server Name', status as 'Status', xray_version as 'Xray Version'\r\nFROM nodes \r\nWHERE status IN ('error', 'connecting', 'disabled', 'connected') \r\nORDER BY status DESC;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "users_usage",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
               },
-              "filterable": true,
-              "inspect": false
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "decbytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 10,
-          "w": 6,
-          "x": 6,
-          "y": 17
-        },
-        "id": 9,
-        "options": {
-          "cellHeight": "sm",
-          "footer": {
-            "countRows": false,
-            "enablePagination": true,
-            "fields": [],
-            "reducer": [
-              "sum"
+              {
+                "parameters": [
+                  {
+                    "name": "username",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
             ],
-            "show": true
+            "groupBy": [],
+            "limit": 50
           },
-          "showHeader": true,
-          "sortBy": [
-            {
-              "desc": true,
-              "displayName": "Traffic"
+          "table": "admins"
+        }
+      ],
+      "title": "Nodes Status",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "description": "این قسمت جمع کل حجم های ساخته شده شما هست",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 6
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^total_data_limit$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "alghaede",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(data_limit) >= 1099511627776 THEN CONCAT(ROUND(SUM(data_limit) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(data_limit) >= 1073741824 THEN CONCAT(ROUND(SUM(data_limit) / 1073741824, 2), ' GB')\r\n    WHEN SUM(data_limit) >= 1048576 THEN CONCAT(ROUND(SUM(data_limit) / 1048576, 2), ' MB')\r\n    WHEN SUM(data_limit) >= 1024 THEN CONCAT(ROUND(SUM(data_limit) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(data_limit), ' B')\r\n  END AS total_data_limit\r\nFROM users\r\nWHERE admin_id = ${adminID}\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "All Data Allocation Overview",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 4,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Value",
+          "sortDesc": true,
+          "values": [
+            "value",
+            "percent"
           ]
         },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  IFNULL(n.name, 'Main') AS `Node`,\r\n  SUM(a.used_traffic) AS `Traffic`\r\nFROM node_user_usages AS a\r\nLEFT JOIN users AS u ON u.id = a.user_id\r\nLEFT JOIN nodes AS n ON n.id = a.node_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}  -- فیلتر کردن فقط برای یک ادمین خاص\r\nGROUP BY IFNULL(n.name, 'Main');\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Traffic by Node",
-        "type": "table"
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic-by-name"
-            },
-            "custom": {
-              "axisBorderShow": true,
-              "axisCenteredZero": false,
-              "axisColorMode": "series",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "opacity",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "decimals": 1,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "decbytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 12,
-          "x": 12,
-          "y": 17
-        },
-        "id": 15,
-        "options": {
-          "legend": {
-            "calcs": [
-              "sum",
-              "mean"
-            ],
-            "displayMode": "table",
-            "placement": "right",
-            "showLegend": false
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  SUM(a.used_traffic) AS 'Traffic'\r\nFROM node_user_usages a\r\nJOIN nodes n ON n.id = a.node_id\r\nJOIN users u ON u.id = a.user_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Traffic by time",
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL-MARZBAN}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic-by-name"
-            },
-            "custom": {
-              "axisBorderShow": true,
-              "axisCenteredZero": false,
-              "axisColorMode": "series",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "opacity",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 6,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "decimals": 0,
-            "mappings": [],
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "none"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 12,
-          "x": 12,
-          "y": 22
-        },
-        "id": 12,
-        "options": {
-          "legend": {
-            "calcs": [
-              "sum",
-              "mean"
-            ],
-            "displayMode": "table",
-            "placement": "right",
-            "showLegend": false
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "pluginVersion": "11.4.0",
-        "targets": [
-          {
-            "dataset": "marzban",
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL-MARZBAN}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  COUNT(a.created_at) AS 'Count'\r\nFROM node_user_usages a\r\nJOIN users u ON u.id = a.user_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Connections by time",
-        "type": "timeseries"
-      }
-    ],
-    "refresh": "1m",
-    "schemaVersion": 40,
-    "tags": [],
-    "templating": {
-      "list": [
+      "pluginVersion": "11.4.0",
+      "targets": [
         {
-          "hide": 2,
-          "name": "adminID",
-          "query": "${VAR_ADMINID}",
-          "skipUrlSync": true,
-          "type": "constant",
-          "current": {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT b.type 'Client',\r\n       count(a.id) 'Users'\r\nFROM users AS a\r\nLEFT JOIN (\r\n    SELECT DISTINCT \r\n           sub_last_user_agent,\r\n           CASE \r\n               WHEN sub_last_user_agent IS NULL OR TRIM(sub_last_user_agent) = '' THEN 'Unknown'  \r\n               ELSE SUBSTR(sub_last_user_agent, 1, INSTR(sub_last_user_agent, '/')-1)\r\n           END AS type\r\n    FROM users\r\n) AS b ON b.sub_last_user_agent = a.sub_last_user_agent\r\nWHERE online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\n\tAND a.admin_id = ${adminID}\r\ngroup by b.type\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Connections by Client",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "description": "حجم کل مصرفی یوزرهای شما (این بخش ریست نخواهد شد)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/.*/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "alghaede",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(used_traffic) >= 1099511627776 THEN CONCAT(ROUND(SUM(used_traffic) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(used_traffic) >= 1073741824 THEN CONCAT(ROUND(SUM(used_traffic) / 1073741824, 2), ' GB')\r\n    WHEN SUM(used_traffic) >= 1048576 THEN CONCAT(ROUND(SUM(used_traffic) / 1048576, 2), ' MB')\r\n    WHEN SUM(used_traffic) >= 1024 THEN CONCAT(ROUND(SUM(used_traffic) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(used_traffic), ' B')\r\n  END AS total_used_traffic\r\nFROM users\r\nWHERE admin_id = ${adminID}\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "All Used Traffic Overview",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "description": "اطلاعات شما در این بخش (مصرف حجم شما درصورت تمدید ریست خواهد شد)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "color-text",
+              "wrapText": false
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 11,
+        "y": 9
+      },
+      "id": 22,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": [],
+          "reducer": [],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "users_usage"
+          }
+        ]
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    ad.username AS 'Admin Name',\r\n    a.reset_at,\r\n    -- تبدیل حجم به واحد مناسب با استفاده از CASE\r\n    CASE \r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 4) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 4), 2), ' TB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 3) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 3), 2), ' GB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 2) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 2), 2), ' MB')\r\n        ELSE CONCAT(ROUND(a.used_traffic_at_reset / 1024, 2), ' KB')\r\n    END AS 'Used Traffic'\r\nFROM \r\n    admin_usage_logs a\r\nJOIN \r\n    admins ad ON a.admin_id = ad.id\r\nWHERE \r\n    a.admin_id = ${adminID}\r\nORDER BY \r\n    a.reset_at DESC;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "users_usage",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "username",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [],
+            "limit": 50
+          },
+          "table": "admins"
+        }
+      ],
+      "title": "Reseted Traffic",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "description": "وضعیت یوزرهای شما",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "Count",
+                  "on_hold",
+                  "disabled"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 12
+      },
+      "id": 21,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 24,
+        "minVizHeight": 57,
+        "minVizWidth": 8,
+        "namePlacement": "left",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^User Count$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "manual",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "alghaede",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    u.status AS \"User Status\", \r\n    COUNT(u.id) AS \"User Count\"\r\nFROM \r\n    users u\r\nWHERE u.admin_id = ${adminID}\r\nGROUP BY \r\n    u.status;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "All Users Status",
+      "type": "bargauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Daily Reset",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 0,
+        "y": 17
+      },
+      "id": 8,
+      "options": {
+        "basemap": {
+          "config": {},
+          "name": "Layer 0",
+          "type": "default"
+        },
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": true,
+          "showDebug": false,
+          "showMeasure": false,
+          "showScale": false,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.4,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "field": "used_traffic",
+                  "fixed": 5,
+                  "max": 15,
+                  "min": 1
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "text": {
+                  "field": "node",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "A"
+            },
+            "location": {
+              "gazetteer": "public/gazetteer/countries.json",
+              "lookup": "node",
+              "mode": "lookup"
+            },
+            "name": "Traffic usage",
+            "tooltip": true,
+            "type": "markers"
+          }
+        ],
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "zero",
+          "lat": 0,
+          "lon": 0,
+          "shared": false,
+          "zoom": 1
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  SUM(a.used_traffic) AS `used_traffic`,\r\n  IFNULL(n.name, 'Main') AS `node`\r\nFROM node_user_usages a\r\nLEFT JOIN users u ON u.id = a.user_id  -- اضافه کردن JOIN برای دسترسی به admin_id\r\nLEFT JOIN nodes n ON n.id = a.node_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}  -- فیلتر کردن فقط برای یک ادمین خاص\r\nGROUP BY IFNULL(n.name, 'Main');\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Today users",
+      "type": "geomap"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto",
+              "wrapText": false
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 6,
+        "y": 17
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": [],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Traffic"
+          }
+        ]
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  IFNULL(n.name, 'Main') AS `Node`,\r\n  SUM(a.used_traffic) AS `Traffic`\r\nFROM node_user_usages AS a\r\nLEFT JOIN users AS u ON u.id = a.user_id\r\nLEFT JOIN nodes AS n ON n.id = a.node_id\r\nWHERE \r\n  CONVERT_TZ(a.created_at, '+00:00', '+03:30') >= CONCAT(DATE(CONVERT_TZ(NOW(), '+00:00', '+03:30')), ' 00:00:00')\r\n  AND u.admin_id = ${adminID} \r\nGROUP BY \r\n  IFNULL(n.name, 'Main');\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Traffic by Node",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "series",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  SUM(a.used_traffic) AS 'Traffic'\r\nFROM node_user_usages a\r\nJOIN nodes n ON n.id = a.node_id\r\nJOIN users u ON u.id = a.user_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Traffic by time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL-MARZBAN}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "series",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 22
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0",
+      "targets": [
+        {
+          "dataset": "marzban",
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL-MARZBAN}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  a.created_at AS 'Datetime', \r\n  COUNT(a.created_at) AS 'Count'\r\nFROM node_user_usages a\r\nJOIN users u ON u.id = a.user_id\r\nWHERE a.created_at >= CONCAT(CURDATE(), ' 00:00:00')\r\n  AND u.admin_id = ${adminID}\r\nGROUP BY a.created_at\r\nORDER BY a.created_at ASC;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Connections by time",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "1m",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "hide": 2,
+        "name": "adminID",
+        "query": "${VAR_ADMINID}",
+        "skipUrlSync": true,
+        "type": "constant",
+        "current": {
+          "value": "${VAR_ADMINID}",
+          "text": "${VAR_ADMINID}",
+          "selected": false
+        },
+        "options": [
+          {
             "value": "${VAR_ADMINID}",
             "text": "${VAR_ADMINID}",
             "selected": false
-          },
-          "options": [
-            {
-              "value": "${VAR_ADMINID}",
-              "text": "${VAR_ADMINID}",
-              "selected": false
-            }
-          ]
-        }
-      ]
-    },
-    "time": {
-      "from": "now/d",
-      "to": "now/d"
-    },
-    "timepicker": {
-      "refresh_intervals": [
-        "1m",
-        "5m",
-        "15m",
-        "30m",
-        "1h",
-        "2h",
-        "1d"
-      ]
-    },
-    "timezone": "",
-    "title": "Marzban-CS V1.1.1",
-    "uid": "c1234818d3-4de9-4d42-9686-124939CSv111",
-    "version": 52,
-    "weekStart": ""
-  }
+          }
+        ]
+      }
+    ]
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Marzban-CS V1.1.2",
+  "uid": "c1234818d3-4de9-4d42-9686-124939CSv112",
+  "version": 3,
+  "weekStart": ""
+}
