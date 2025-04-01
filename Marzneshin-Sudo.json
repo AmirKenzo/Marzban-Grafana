@@ -1,1374 +1,1467 @@
 {
-    "__inputs": [
-      {
-        "name": "DS_MYSQL",
-        "label": "mysql",
-        "description": "",
-        "type": "datasource",
-        "pluginId": "mysql",
-        "pluginName": "MySQL"
-      }
-    ],
-    "__elements": {},
-    "__requires": [
-      {
-        "type": "panel",
-        "id": "bargauge",
-        "name": "Bar gauge",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "geomap",
-        "name": "Geomap",
-        "version": ""
-      },
-      {
-        "type": "grafana",
-        "id": "grafana",
-        "name": "Grafana",
-        "version": "11.5.3"
-      },
-      {
-        "type": "datasource",
-        "id": "mysql",
-        "name": "MySQL",
-        "version": "11.5.3"
-      },
-      {
-        "type": "panel",
-        "id": "piechart",
-        "name": "Pie chart",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "stat",
-        "name": "Stat",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "table",
-        "name": "Table",
-        "version": ""
-      },
-      {
-        "type": "panel",
-        "id": "timeseries",
-        "name": "Time series",
-        "version": ""
-      }
-    ],
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": {
-            "type": "grafana",
-            "uid": "-- Grafana --"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
+  "__inputs": [
+    {
+      "name": "DS_MYSQL",
+      "label": "mysql",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "mysql",
+      "pluginName": "MySQL"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
     },
-    "description": "this is dashboard for marzneshin pannel with mysql",
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": null,
-    "links": [],
-    "panels": [
+    {
+      "type": "panel",
+      "id": "geomap",
+      "name": "Geomap",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.5.3"
+    },
+    {
+      "type": "datasource",
+      "id": "mysql",
+      "name": "MySQL",
+      "version": "11.5.3"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
       {
-        "collapsed": false,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 0
-        },
-        "id": 5,
-        "panels": [],
-        "title": "Status now",
-        "type": "row"
-      },
-      {
+        "builtIn": 1,
         "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
+          "type": "grafana",
+          "uid": "-- Grafana --"
         },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "short"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 4,
-          "x": 0,
-          "y": 1
-        },
-        "hideTimeOverride": true,
-        "id": 1,
-        "interval": "1m",
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
-          "reduceOptions": {
-            "calcs": [
-              "sum"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT COUNT(id) 'Online Users', online_at FROM users where online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE) group by online_at",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "timeFrom": "1m",
-        "title": "Online Users",
-        "type": "stat"
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "this is dashboard for marzneshin pannel with mysql",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "continuous-GrYlRd"
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 6,
-          "x": 4,
-          "y": 1
-        },
-        "hideTimeOverride": true,
-        "id": 3,
-        "interval": "1m",
-        "options": {
-          "displayMode": "lcd",
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "right",
-            "showLegend": false
-          },
-          "maxVizHeight": 20,
-          "minVizHeight": 0,
-          "minVizWidth": 8,
-          "namePlacement": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [],
-            "fields": "/^users$/",
-            "values": true
-          },
-          "showUnfilled": true,
-          "sizing": "auto",
-          "valueMode": "color"
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n    nodes.node,\r\n    COALESCE(COUNT(online_users.id), 0) AS users\r\nFROM (\r\n    SELECT DISTINCT IFNULL(n.name, 'Main') AS node FROM nodes n\r\n) AS nodes\r\nLEFT JOIN (\r\n    SELECT \r\n        u.id,\r\n        IFNULL(n.name, 'Main') AS node\r\n    FROM users u\r\n    LEFT JOIN node_user_usages nuu ON nuu.user_id = u.id\r\n    LEFT JOIN nodes n ON n.id = nuu.node_id\r\n    WHERE u.online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\n      AND DATE(nuu.created_at) = CURDATE()\r\n      AND HOUR(nuu.created_at) = HOUR(NOW())\r\n) AS online_users ON nodes.node = online_users.node\r\nGROUP BY nodes.node;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "timeFrom": "1m",
-        "title": "Connections by Node",
-        "type": "bargauge"
+      "id": 5,
+      "panels": [],
+      "title": "Status now",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "align": "center",
-              "cellOptions": {
-                "type": "color-text"
-              },
-              "inspect": false
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
           },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 11,
-          "w": 4,
-          "x": 10,
-          "y": 1
-        },
-        "id": 16,
-        "options": {
-          "cellHeight": "sm",
-          "footer": {
-            "countRows": false,
-            "enablePagination": true,
-            "fields": [],
-            "reducer": [
-              "sum"
-            ],
-            "show": true
-          },
-          "showHeader": true,
-          "sortBy": [
-            {
-              "desc": true,
-              "displayName": "users_usage"
-            }
-          ]
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  username as \"Name\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = admins.id) AS \"Users\"\r\nFROM \r\n  admins\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [
-                    {
-                      "name": "users_usage",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                },
-                {
-                  "parameters": [
-                    {
-                      "name": "username",
-                      "type": "functionParameter"
-                    }
-                  ],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [],
-              "limit": 50
-            },
-            "table": "admins"
-          }
-        ],
-        "title": "Admin List",
-        "type": "table"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "description": "Status Lists Nodes",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "align": "auto",
-              "cellOptions": {
-                "type": "color-text",
-                "wrapText": false
-              },
-              "filterable": false,
-              "inspect": false
-            },
-            "fieldMinMax": false,
-            "mappings": [
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
-                "options": {
-                  "connected": {
-                    "color": "green",
-                    "index": 1,
-                    "text": "Connected"
-                  },
-                  "connecting": {
-                    "color": "yellow",
-                    "index": 0,
-                    "text": "Connecting"
-                  },
-                  "disabled": {
-                    "color": "text",
-                    "index": 3,
-                    "text": "Disabled"
-                  },
-                  "error": {
-                    "color": "dark-red",
-                    "index": 2,
-                    "text": "Error"
-                  }
-                },
-                "type": "value"
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 11,
-          "w": 10,
-          "x": 14,
-          "y": 1
-        },
-        "id": 18,
-        "options": {
-          "cellHeight": "sm",
-          "footer": {
-            "countRows": true,
-            "enablePagination": true,
-            "fields": "",
-            "reducer": [
-              "count"
-            ],
-            "show": false
-          },
-          "showHeader": true
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n    name AS 'Name', \r\n    status AS 'Status', \r\n    xray_version,\r\n    CASE \r\n        WHEN uplink >= 1099511627776 THEN CONCAT(ROUND(uplink / 1099511627776, 2), ' TB')\r\n        WHEN uplink >= 1073741824 THEN CONCAT(ROUND(uplink / 1073741824, 2), ' GB')\r\n        WHEN uplink >= 1048576 THEN CONCAT(ROUND(uplink / 1048576, 2), ' MB')\r\n        WHEN uplink >= 1024 THEN CONCAT(ROUND(uplink / 1024, 2), ' KB')\r\n        ELSE CONCAT(uplink, ' B')\r\n    END AS Upload,\r\n    CASE \r\n        WHEN downlink >= 1099511627776 THEN CONCAT(ROUND(downlink / 1099511627776, 2), ' TB')\r\n        WHEN downlink >= 1073741824 THEN CONCAT(ROUND(downlink / 1073741824, 2), ' GB')\r\n        WHEN downlink >= 1048576 THEN CONCAT(ROUND(downlink / 1048576, 2), ' MB')\r\n        WHEN downlink >= 1024 THEN CONCAT(ROUND(downlink / 1024, 2), ' KB')\r\n        ELSE CONCAT(downlink, ' B')\r\n    END AS Down\r\nFROM nodes \r\nWHERE status IN ('unhealthy', 'healthy', 'disabled') \r\nORDER BY status DESC;\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Nodes Status",
-        "type": "table"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "fixedColor": "blue",
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "unit": "none"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 7,
-          "w": 6,
-          "x": 4,
-          "y": 5
-        },
-        "id": 4,
-        "options": {
-          "displayLabels": [
-            "percent"
-          ],
-          "legend": {
-            "calcs": [],
-            "displayMode": "table",
-            "placement": "right",
-            "showLegend": true,
-            "sortBy": "Value",
-            "sortDesc": true,
-            "values": [
-              "value",
-              "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": true
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "multi",
-            "sort": "none"
-          }
+          "unit": "short"
         },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT b.type 'Client',\r\n       count(a.id) 'Users'\r\nFROM users AS a\r\nLEFT JOIN (\r\n    SELECT DISTINCT \r\n           sub_last_user_agent,\r\n           CASE \r\n               WHEN sub_last_user_agent IS NULL OR TRIM(sub_last_user_agent) = '' THEN 'Unknown'  \r\n               ELSE SUBSTR(sub_last_user_agent, 1, INSTR(sub_last_user_agent, '/')-1)\r\n           END AS type\r\n    FROM users\r\n) AS b ON b.sub_last_user_agent = a.sub_last_user_agent\r\nWHERE online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\ngroup by b.type\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Connections by Client",
-        "type": "piechart"
+        "overrides": []
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "description": "حجم کل مصرفی یوزرهای شما (این بخش ریست نخواهد شد)",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 3,
-          "w": 4,
-          "x": 0,
-          "y": 6
-        },
-        "id": 20,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
-          "reduceOptions": {
-            "calcs": [],
-            "fields": "/.*/",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(used_traffic) >= 1099511627776 THEN CONCAT(ROUND(SUM(used_traffic) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(used_traffic) >= 1073741824 THEN CONCAT(ROUND(SUM(used_traffic) / 1073741824, 2), ' GB')\r\n    WHEN SUM(used_traffic) >= 1048576 THEN CONCAT(ROUND(SUM(used_traffic) / 1048576, 2), ' MB')\r\n    WHEN SUM(used_traffic) >= 1024 THEN CONCAT(ROUND(SUM(used_traffic) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(used_traffic), ' B')\r\n  END AS total_used_traffic\r\nFROM users\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "All Used Traffic Overview",
-        "type": "stat"
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 1
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
+      "hideTimeOverride": true,
+      "id": 1,
+      "interval": "1m",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
         },
-        "description": "این قسمت جمع کل حجم های ساخته شده شما هست",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 3,
-          "w": 4,
-          "x": 0,
-          "y": 9
-        },
-        "id": 21,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
-          "reduceOptions": {
-            "calcs": [],
-            "fields": "/^total_data_limit$/",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(data_limit) >= 1099511627776 THEN CONCAT(ROUND(SUM(data_limit) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(data_limit) >= 1073741824 THEN CONCAT(ROUND(SUM(data_limit) / 1073741824, 2), ' GB')\r\n    WHEN SUM(data_limit) >= 1048576 THEN CONCAT(ROUND(SUM(data_limit) / 1048576, 2), ' MB')\r\n    WHEN SUM(data_limit) >= 1024 THEN CONCAT(ROUND(SUM(data_limit) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(data_limit), ' B')\r\n  END AS total_data_limit\r\nFROM users\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "All Data Allocation Overview",
-        "type": "stat"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
           },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 4,
-          "x": 0,
-          "y": 12
-        },
-        "id": 19,
-        "options": {
-          "colorMode": "background",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "horizontal",
-          "percentChangeColorMode": "same_as_value",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "/.*/",
-            "values": false
-          },
-          "showPercentChange": false,
-          "text": {},
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "hide": false,
-            "rawQuery": true,
-            "rawSql": "SELECT\r\n  CASE \r\n    WHEN downlink >= POWER(1024, 4) THEN CONCAT(ROUND(downlink / POWER(1024, 4), 2), ' TB')\r\n    WHEN downlink >= POWER(1024, 3) THEN CONCAT(ROUND(downlink / POWER(1024, 3), 2), ' GB')\r\n    WHEN downlink >= POWER(1024, 2) THEN CONCAT(ROUND(downlink / POWER(1024, 2), 2), ' MB')\r\n    ELSE CONCAT(ROUND(downlink / 1024, 2), ' KB')\r\n  END AS \"Download\",\r\n\r\n  CASE \r\n    WHEN uplink >= POWER(1024, 4) THEN CONCAT(ROUND(uplink / POWER(1024, 4), 2), ' TB')\r\n    WHEN uplink >= POWER(1024, 3) THEN CONCAT(ROUND(uplink / POWER(1024, 3), 2), ' GB')\r\n    WHEN uplink >= POWER(1024, 2) THEN CONCAT(ROUND(uplink / POWER(1024, 2), 2), ' MB')\r\n    ELSE CONCAT(ROUND(uplink / 1024, 2), ' KB')\r\n  END AS \"Upload\"\r\n  \r\nFROM `system`;",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Panel Data Usage",
-        "type": "stat"
-      },
-      {
-        "collapsed": false,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 16
-        },
-        "id": 6,
-        "panels": [],
-        "title": "Today stats",
-        "type": "row"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(id) 'Online Users', online_at FROM users WHERE online_at >= DATE_SUB(NOW(), INTERVAL 60 SECOND) GROUP BY online_at;",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
               }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
                 },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "timeFrom": "1m",
+      "title": "Online Users",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
           },
-          "overrides": []
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
-        "gridPos": {
-          "h": 10,
-          "w": 6,
-          "x": 0,
-          "y": 17
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 4,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 3,
+      "interval": "1m",
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
         },
-        "id": 8,
-        "options": {
-          "basemap": {
-            "config": {},
-            "name": "Layer 0",
-            "type": "default"
+        "maxVizHeight": 20,
+        "minVizHeight": 0,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^users$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
           },
-          "controls": {
-            "mouseWheelZoom": true,
-            "showAttribution": true,
-            "showDebug": false,
-            "showMeasure": false,
-            "showScale": false,
-            "showZoom": true
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    nodes.node,\r\n    COALESCE(COUNT(online_users.id), 0) AS users\r\nFROM (\r\n    SELECT DISTINCT IFNULL(n.name, 'Main') AS node FROM nodes n\r\n) AS nodes\r\nLEFT JOIN (\r\n    SELECT \r\n        u.id,\r\n        IFNULL(n.name, 'Main') AS node\r\n    FROM users u\r\n    LEFT JOIN node_user_usages nuu ON nuu.user_id = u.id\r\n    LEFT JOIN nodes n ON n.id = nuu.node_id\r\n    WHERE u.online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\n      AND DATE(nuu.created_at) = CURDATE()\r\n      AND HOUR(nuu.created_at) = HOUR(NOW())\r\n) AS online_users ON nodes.node = online_users.node\r\nGROUP BY nodes.node;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "timeFrom": "1m",
+      "title": "Connections by Node",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
           },
-          "layers": [
-            {
-              "config": {
-                "showLegend": true,
-                "style": {
-                  "color": {
-                    "fixed": "dark-green"
-                  },
-                  "opacity": 0.4,
-                  "rotation": {
-                    "fixed": 0,
-                    "max": 360,
-                    "min": -360,
-                    "mode": "mod"
-                  },
-                  "size": {
-                    "field": "used_traffic",
-                    "fixed": 5,
-                    "max": 15,
-                    "min": 1
-                  },
-                  "symbol": {
-                    "fixed": "img/icons/marker/circle.svg",
-                    "mode": "fixed"
-                  },
-                  "symbolAlign": {
-                    "horizontal": "center",
-                    "vertical": "center"
-                  },
-                  "text": {
-                    "field": "node",
-                    "fixed": "",
-                    "mode": "field"
-                  },
-                  "textConfig": {
-                    "fontSize": 12,
-                    "offsetX": 0,
-                    "offsetY": 0,
-                    "textAlign": "center",
-                    "textBaseline": "middle"
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 10,
+        "y": 1
+      },
+      "id": 16,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": [],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "users_usage"
+          }
+        ]
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  a.username AS \"Name\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = a.id AND username IS NOT NULL) AS \"Users\",\r\n\r\n\r\n  CASE \r\n    WHEN (SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) >= POWER(1024, 4) \r\n      THEN CONCAT(ROUND((SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) / POWER(1024, 4), 2), ' TB') \r\n    WHEN (SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) >= POWER(1024, 3) \r\n      THEN CONCAT(ROUND((SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) / POWER(1024, 3), 2), ' GB') \r\n    WHEN (SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) >= POWER(1024, 2) \r\n      THEN CONCAT(ROUND((SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) / POWER(1024, 2), 2), ' MB') \r\n    WHEN (SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) >= 1024 \r\n      THEN CONCAT(ROUND((SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id) / 1024, 2), ' KB') \r\n    ELSE CONCAT(COALESCE((SELECT SUM(used_traffic) FROM users WHERE admin_id = a.id), 0), ' B') \r\n  END AS \"Total Used Traffic\"\r\n\r\nFROM \r\n  admins a;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "users_usage",
+                    "type": "functionParameter"
                   }
+                ],
+                "type": "function"
+              },
+              {
+                "parameters": [
+                  {
+                    "name": "username",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [],
+            "limit": 50
+          },
+          "table": "admins"
+        }
+      ],
+      "title": "Admin List",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "description": "Status Lists Nodes",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-text",
+              "wrapText": false
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "connected": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "Connected"
+                },
+                "connecting": {
+                  "color": "yellow",
+                  "index": 0,
+                  "text": "Connecting"
+                },
+                "disabled": {
+                  "color": "text",
+                  "index": 3,
+                  "text": "Disabled"
+                },
+                "error": {
+                  "color": "dark-red",
+                  "index": 2,
+                  "text": "Error"
                 }
               },
-              "filterData": {
-                "id": "byRefId",
-                "options": "A"
-              },
-              "location": {
-                "gazetteer": "public/gazetteer/countries.json",
-                "lookup": "node",
-                "mode": "lookup"
-              },
-              "name": "Traffic usage",
-              "tooltip": true,
-              "type": "markers"
+              "type": "value"
             }
           ],
-          "tooltip": {
-            "mode": "details"
-          },
-          "view": {
-            "allLayers": true,
-            "id": "zero",
-            "lat": 0,
-            "lon": 0,
-            "shared": false,
-            "zoom": 1
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
           }
         },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "select SUM(`a`.`used_traffic`) AS `used_traffic`,\r\n                            ifnull(`n`.`name`, 'Main') AS `node`\r\n                        from ( (\r\n                                    `node_user_usages` `a`\r\n                                    left join `users` `u` on( (`u`.`id` = `a`.`user_id`))\r\n                                )\r\n                                left join `nodes` `n` on( (`n`.`id` = `a`.`node_id`))\r\n                            )\r\n                        where (\r\n                                `a`.`created_at` >= concat( curdate(),' 00:00:00'\r\n                                )\r\n                            )\r\n                            group by ifnull(`n`.`name`, 'Main')",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Today users",
-        "type": "geomap"
+        "overrides": []
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 18,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": true,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "count"
+          ],
+          "show": false
         },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "fixed"
-            },
-            "custom": {
-              "align": "center",
-              "cellOptions": {
-                "type": "auto",
-                "wrapText": false
-              },
-              "filterable": true,
-              "inspect": false
-            },
-            "fieldMinMax": false,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "decbytes"
+        "showHeader": true
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
           },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 10,
-          "w": 8,
-          "x": 6,
-          "y": 17
-        },
-        "id": 9,
-        "options": {
-          "cellHeight": "sm",
-          "footer": {
-            "countRows": false,
-            "enablePagination": true,
-            "fields": [],
-            "reducer": [
-              "sum"
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    name AS 'Name', \r\n    status AS 'Status'\r\nFROM nodes \r\nWHERE status IN ('unhealthy', 'healthy', 'disabled') \r\nORDER BY status DESC;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
             ],
-            "show": true
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Nodes Status",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "description": "حجم کل مصرفی یوزرهای شما (این بخش ریست نخواهد شد)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
           },
-          "showHeader": true,
-          "sortBy": [
-            {
-              "desc": true,
-              "displayName": "Traffic"
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 6
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/.*/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(used_traffic) >= 1099511627776 THEN CONCAT(ROUND(SUM(used_traffic) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(used_traffic) >= 1073741824 THEN CONCAT(ROUND(SUM(used_traffic) / 1073741824, 2), ' GB')\r\n    WHEN SUM(used_traffic) >= 1048576 THEN CONCAT(ROUND(SUM(used_traffic) / 1048576, 2), ' MB')\r\n    WHEN SUM(used_traffic) >= 1024 THEN CONCAT(ROUND(SUM(used_traffic) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(used_traffic), ' B')\r\n  END AS total_used_traffic\r\nFROM users\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "All Used Traffic Overview",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "description": "این قسمت جمع کل حجم های ساخته شده شما هست",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^total_data_limit$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  CASE\r\n    WHEN SUM(data_limit) >= 1099511627776 THEN CONCAT(ROUND(SUM(data_limit) / 1099511627776, 2), ' TB')\r\n    WHEN SUM(data_limit) >= 1073741824 THEN CONCAT(ROUND(SUM(data_limit) / 1073741824, 2), ' GB')\r\n    WHEN SUM(data_limit) >= 1048576 THEN CONCAT(ROUND(SUM(data_limit) / 1048576, 2), ' MB')\r\n    WHEN SUM(data_limit) >= 1024 THEN CONCAT(ROUND(SUM(data_limit) / 1024, 2), ' KB')\r\n    ELSE CONCAT(SUM(data_limit), ' B')\r\n  END AS total_data_limit\r\nFROM users\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "All Data Allocation Overview",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 4,
+        "y": 10
+      },
+      "id": 4,
+      "options": {
+        "displayLabels": [
+          "percent"
+        ],
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Value",
+          "sortDesc": true,
+          "values": [
+            "value",
+            "percent"
           ]
         },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
-            },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "SELECT \r\n    IFNULL(`n`.`name`, 'Main') AS `Node`,\r\n    SUM(`a`.`used_traffic`) AS `Traffic`\r\nFROM \r\n    (`node_user_usages` `a` \r\n    LEFT JOIN `users` `u` ON `u`.`id` = `a`.`user_id`) \r\n    LEFT JOIN `nodes` `n` ON `n`.`id` = `a`.`node_id`\r\nWHERE \r\n    CONVERT_TZ(`a`.`created_at`, '+00:00', '+03:30') >= CONCAT(DATE(CONVERT_TZ(NOW(), '+00:00', '+03:30')), ' 00:00:00')\r\nGROUP BY \r\n    IFNULL(`n`.`name`, 'Main');\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
-          }
-        ],
-        "title": "Traffic by Node",
-        "type": "table"
-      },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
         },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic-by-name"
-            },
-            "custom": {
-              "axisBorderShow": true,
-              "axisCenteredZero": false,
-              "axisColorMode": "series",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "opacity",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT b.type 'Client',\r\n       count(a.id) 'Users'\r\nFROM users AS a\r\nLEFT JOIN (\r\n    SELECT DISTINCT \r\n           sub_last_user_agent,\r\n           CASE \r\n               WHEN sub_last_user_agent IS NULL OR TRIM(sub_last_user_agent) = '' THEN 'Unknown'  \r\n               ELSE SUBSTR(sub_last_user_agent, 1, INSTR(sub_last_user_agent, '/')-1)\r\n           END AS type\r\n    FROM users\r\n) AS b ON b.sub_last_user_agent = a.sub_last_user_agent\r\nWHERE online_at >= DATE_SUB(NOW(), INTERVAL 1 MINUTE)\r\ngroup by b.type\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Connections by Client",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
               },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 12
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "same_as_value",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n  CASE \r\n    WHEN SUM(IFNULL(nu.downlink, 0)) >= POWER(1024, 4) THEN CONCAT(ROUND(SUM(IFNULL(nu.downlink, 0)) / POWER(1024, 4), 2), ' TB') \r\n    WHEN SUM(IFNULL(nu.downlink, 0)) >= POWER(1024, 3) THEN CONCAT(ROUND(SUM(IFNULL(nu.downlink, 0)) / POWER(1024, 3), 2), ' GB') \r\n    WHEN SUM(IFNULL(nu.downlink, 0)) >= POWER(1024, 2) THEN CONCAT(ROUND(SUM(IFNULL(nu.downlink, 0)) / POWER(1024, 2), 2), ' MB') \r\n    WHEN SUM(IFNULL(nu.downlink, 0)) >= 1024 THEN CONCAT(ROUND(SUM(IFNULL(nu.downlink, 0)) / 1024, 2), ' KB') \r\n    ELSE CONCAT(ROUND(SUM(IFNULL(nu.downlink, 0)), 2), ' B') \r\n  END AS \"Total Download & Upload\"\r\nFROM \r\n  node_usages nu;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Total System Traffic (Download & Upload)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
               },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 10,
+        "y": 12
+      },
+      "id": 22,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "top",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "dataset": "marzneshin",
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    COUNT(CASE WHEN activated = 1 THEN 1 END) AS \"Active Users\",\r\n    COUNT(CASE WHEN activated = 0 THEN 1 END) AS \"Disabled Users\",\r\n    COUNT(CASE WHEN IFNULL(expire_date, '9999-12-31') <= NOW() AND expire_date IS NOT NULL THEN 1 END) AS \"Expired Users\",\r\n    COUNT(CASE WHEN username IS NULL AND removed = 1 THEN 1 END) AS \"Removed Users\",\r\n    COUNT(CASE WHEN removed = 0 AND expire_date = '9999-12-31' OR expire_date IS NULL THEN 1 END) AS \"Unlimited Expiration Users\",\r\n    COUNT(CASE WHEN IFNULL(data_limit, 0) = 0 THEN 1 END) AS \"Unlimited Data Users\"\r\nFROM users;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          }
+        }
+      ],
+      "title": "Users Status",
+      "type": "bargauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Today stats",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
               },
-              "thresholdsStyle": {
-                "mode": "off"
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 0,
+        "y": 21
+      },
+      "id": 8,
+      "options": {
+        "basemap": {
+          "config": {},
+          "name": "Layer 0",
+          "type": "default"
+        },
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": true,
+          "showDebug": false,
+          "showMeasure": false,
+          "showScale": false,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.4,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "field": "used_traffic",
+                  "fixed": 5,
+                  "max": 15,
+                  "min": 1
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "text": {
+                  "field": "node",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
               }
             },
-            "decimals": 1,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
+            "filterData": {
+              "id": "byRefId",
+              "options": "A"
             },
-            "unit": "decbytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 10,
-          "x": 14,
-          "y": 17
-        },
-        "id": 15,
-        "options": {
-          "legend": {
-            "calcs": [
-              "sum",
-              "mean"
-            ],
-            "displayMode": "table",
-            "placement": "right",
-            "showLegend": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
+            "location": {
+              "gazetteer": "public/gazetteer/countries.json",
+              "lookup": "node",
+              "mode": "lookup"
             },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "select a.created_at 'Datetime', sum(a.used_traffic) 'Traffic' from node_user_usages a\r\njoin nodes n on n.id = a.node_id\r\nwhere a.created_at >= concat( curdate(),' 00:00:00')\r\ngroup by a.created_at\r\norder by a.created_at ASC\r\n",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
+            "name": "Traffic usage",
+            "tooltip": true,
+            "type": "markers"
           }
         ],
-        "title": "Traffic by time",
-        "type": "timeseries"
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "zero",
+          "lat": 0,
+          "lon": 0,
+          "shared": false,
+          "zoom": 1
+        }
       },
-      {
-        "datasource": {
-          "type": "mysql",
-          "uid": "${DS_MYSQL}"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic-by-name"
-            },
-            "custom": {
-              "axisBorderShow": true,
-              "axisCenteredZero": false,
-              "axisColorMode": "series",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "opacity",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 6,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "select SUM(`a`.`used_traffic`) AS `used_traffic`,\r\n                            ifnull(`n`.`name`, 'Main') AS `node`\r\n                        from ( (\r\n                                    `node_user_usages` `a`\r\n                                    left join `users` `u` on( (`u`.`id` = `a`.`user_id`))\r\n                                )\r\n                                left join `nodes` `n` on( (`n`.`id` = `a`.`node_id`))\r\n                            )\r\n                        where (\r\n                                `a`.`created_at` >= concat( curdate(),' 00:00:00'\r\n                                )\r\n                            )\r\n                            group by ifnull(`n`.`name`, 'Main')",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
               }
-            },
-            "decimals": 0,
-            "mappings": [],
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "none"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 10,
-          "x": 14,
-          "y": 22
-        },
-        "id": 12,
-        "options": {
-          "legend": {
-            "calcs": [
-              "sum",
-              "mean"
             ],
-            "displayMode": "table",
-            "placement": "right",
-            "showLegend": false
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Today users",
+      "type": "geomap"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
           },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "pluginVersion": "11.5.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "mysql",
-              "uid": "${DS_MYSQL}"
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto",
+              "wrapText": false
             },
-            "editorMode": "code",
-            "format": "table",
-            "rawQuery": true,
-            "rawSql": "select a.created_at 'Datetime', count(a.created_at) from node_user_usages a where a.created_at >= concat( curdate(),' 00:00:00') group by a.created_at \r\norder by a.created_at ASC",
-            "refId": "A",
-            "sql": {
-              "columns": [
-                {
-                  "parameters": [],
-                  "type": "function"
-                }
-              ],
-              "groupBy": [
-                {
-                  "property": {
-                    "type": "string"
-                  },
-                  "type": "groupBy"
-                }
-              ],
-              "limit": 50
-            }
+            "filterable": true,
+            "inspect": false
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 6,
+        "y": 21
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": true,
+          "fields": [],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Traffic"
           }
-        ],
-        "title": "Connections by time",
-        "type": "timeseries"
-      }
-    ],
-    "refresh": "1m",
-    "schemaVersion": 40,
-    "tags": [],
-    "templating": {
-      "list": []
+        ]
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    IFNULL(`n`.`name`, 'Main') AS `Node`,\r\n    SUM(`a`.`used_traffic`) AS `Traffic`\r\nFROM \r\n    (`node_user_usages` `a` \r\n    LEFT JOIN `users` `u` ON `u`.`id` = `a`.`user_id`) \r\n    LEFT JOIN `nodes` `n` ON `n`.`id` = `a`.`node_id`\r\nWHERE \r\n    CONVERT_TZ(`a`.`created_at`, '+00:00', '+03:30') >= CONCAT(DATE(CONVERT_TZ(NOW(), '+00:00', '+03:30')), ' 00:00:00')\r\nGROUP BY \r\n    IFNULL(`n`.`name`, 'Main');\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Traffic by Node",
+      "type": "table"
     },
-    "time": {
-      "from": "2025-03-31T08:30:00.000Z",
-      "to": "2025-04-02T08:29:59.998Z"
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "series",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 10,
+        "x": 14,
+        "y": 21
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "select a.created_at 'Datetime', sum(a.used_traffic) 'Traffic' from node_user_usages a\r\njoin nodes n on n.id = a.node_id\r\nwhere a.created_at >= concat( curdate(),' 00:00:00')\r\ngroup by a.created_at\r\norder by a.created_at ASC\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Traffic by time",
+      "type": "timeseries"
     },
-    "timepicker": {},
-    "timezone": "",
-    "title": "Marzneshin V1.0.0",
-    "uid": "c12345d3-4de1-4d43-9684-12493913v100",
-    "version": 1,
-    "weekStart": ""
-  }
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "${DS_MYSQL}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": true,
+            "axisCenteredZero": false,
+            "axisColorMode": "series",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 10,
+        "x": 14,
+        "y": 26
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "${DS_MYSQL}"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "select a.created_at 'Datetime', count(a.created_at) from node_user_usages a where a.created_at >= concat( curdate(),' 00:00:00') group by a.created_at \r\norder by a.created_at ASC",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Connections by time",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "1m",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2025-03-31T08:30:00.000Z",
+    "to": "2025-04-02T08:29:59.998Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Marzneshin V1.1.0",
+  "uid": "c12345d3-4de1-4d43-9684-12493913v110",
+  "version": 1,
+  "weekStart": ""
+}
