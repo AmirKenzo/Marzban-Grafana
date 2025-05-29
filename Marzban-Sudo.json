@@ -1327,7 +1327,7 @@
               "editorMode": "code",
               "format": "table",
               "rawQuery": true,
-              "rawSql": "SELECT \r\n  username as \"Name\",\r\n  CASE \r\n    WHEN users_usage >= 1099511627776 THEN CONCAT(ROUND(users_usage / 1099511627776, 2), ' TB')\r\n    WHEN users_usage >= 1073741824 THEN CONCAT(ROUND(users_usage / 1073741824, 2), ' GB')\r\n    WHEN users_usage >= 1048576 THEN CONCAT(ROUND(users_usage / 1048576, 2), ' MB')\r\n    ELSE CONCAT(users_usage, ' B')\r\n  END AS \"Usage\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = admins.id) AS \"Users\"\r\nFROM \r\n  admins\r\n",
+              "rawSql": "SELECT \r\n  username as \"Name\",\r\n  CASE \r\n    -- WHEN users_usage >= 1099511627776 THEN CONCAT(ROUND(users_usage / 1099511627776, 2), ' TB')\r\n    WHEN users_usage >= 1073741824 THEN CONCAT(ROUND(users_usage / 1073741824, 2), ' GB')\r\n    WHEN users_usage >= 1048576 THEN CONCAT(ROUND(users_usage / 1048576, 2), ' MB')\r\n    ELSE CONCAT(users_usage, ' B')\r\n  END AS \"Usage\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = admins.id) AS \"Users\"\r\nFROM \r\n  admins\r\n",
               "refId": "A",
               "sql": {
                 "columns": [
@@ -1427,7 +1427,7 @@
               "editorMode": "code",
               "format": "table",
               "rawQuery": true,
-              "rawSql": "SELECT \r\n    ad.username AS 'Admin Name',\r\n    a.reset_at,\r\n    CASE \r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 4) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 4), 2), ' TB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 3) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 3), 2), ' GB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 2) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 2), 2), ' MB')\r\n        ELSE CONCAT(ROUND(a.used_traffic_at_reset / 1024, 2), ' KB')\r\n    END AS 'Used Traffic'\r\nFROM \r\n    admin_usage_logs a\r\nJOIN \r\n    admins ad ON a.admin_id = ad.id\r\nORDER BY \r\n    a.reset_at DESC;\r\n",
+              "rawSql": "SELECT \r\n    ad.username AS 'Admin Name',\r\n    a.reset_at,\r\n    CASE \r\n        -- WHEN a.used_traffic_at_reset >= POWER(1024, 4) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 4), 2), ' TB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 3) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 3), 2), ' GB')\r\n        WHEN a.used_traffic_at_reset >= POWER(1024, 2) THEN CONCAT(ROUND(a.used_traffic_at_reset / POWER(1024, 2), 2), ' MB')\r\n        ELSE CONCAT(ROUND(a.used_traffic_at_reset / 1024, 2), ' KB')\r\n    END AS 'Used Traffic'\r\nFROM \r\n    admin_usage_logs a\r\nJOIN \r\n    admins ad ON a.admin_id = ad.id\r\nORDER BY \r\n    a.reset_at DESC;\r\n",
               "refId": "A",
               "sql": {
                 "columns": [
