@@ -362,7 +362,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \r\n  username as \"Name\",\r\n  CASE \r\n    WHEN users_usage >= 1099511627776 THEN CONCAT(ROUND(users_usage / 1099511627776, 2), ' TB')\r\n    WHEN users_usage >= 1073741824 THEN CONCAT(ROUND(users_usage / 1073741824, 2), ' GB')\r\n    WHEN users_usage >= 1048576 THEN CONCAT(ROUND(users_usage / 1048576, 2), ' MB')\r\n    ELSE CONCAT(users_usage, ' B')\r\n  END AS \"Usage\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = admins.id) AS \"Users\"\r\nFROM \r\n  admins\r\nWHERE \r\n  admins.id = $adminID;",
+          "rawSql": "SELECT \r\n  username as \"Name\",\r\n  CASE \r\n    WHEN users_usage >= 1099511627776 THEN CONCAT(ROUND(users_usage / 1099511627776, 2), ' TB')\r\n    WHEN users_usage >= 1073741824 THEN CONCAT(ROUND(users_usage / 1073741824, 2), ' GB')\r\n    WHEN users_usage >= 1048576 THEN CONCAT(ROUND(users_usage / 1048576, 2), ' MB')\r\n    ELSE CONCAT(users_usage, ' B')\r\n  END AS \"Usage\",\r\n  (SELECT COUNT(*) FROM users WHERE admin_id = admins.id) AS \"Users\"\r\nFROM \r\n  admins\r\nWHERE \r\n  admins.id = ${adminID};",
           "refId": "A",
           "sql": {
             "columns": [
